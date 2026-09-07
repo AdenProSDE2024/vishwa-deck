@@ -259,10 +259,6 @@ body[data-mode="present"] .vw-review{display:none}
   <div class="eyebrow">Category</div>
   <h1>Vishwa makes financial infrastructure agent-native.</h1>
   <div class="body">
-    <div class="banner">
-      <div class="eyebrow" style="font-size:13px">What Vishwa is — and is not</div>
-      <div style="font-size:21px;font-weight:700;margin-top:7px;line-height:1.3">Vishwa enables agent access and customer validation. Existing institutions and their rails remain authoritative — they approve, they hold, they move the money.</div>
-    </div>
     <div class="stack">
       <div class="col">
         <div class="colhead" style="color:var(--muted)">Human financial infrastructure</div>
@@ -402,10 +398,10 @@ body[data-mode="present"] .vw-review{display:none}
     <div class="card r" style="margin-top:26px;display:flex;align-items:center;gap:30px">
       <div style="flex:none">
         <div class="mono" style="font-size:12.5px;font-weight:700;letter-spacing:.16em;color:var(--red)"><span style="display:inline-block;width:9px;height:9px;background:var(--red);vertical-align:1px;margin-right:7px"></span>BLOCKED</div>
-        <div style="font-size:34px;font-weight:700;margin-top:11px;letter-spacing:-.02em;white-space:nowrap">Concentration 43.1%<br>&gt; the 40% cap</div>
+        <div style="font-size:32px;font-weight:700;margin-top:11px;letter-spacing:-.02em">An order that breaches<br>a policy limit</div>
       </div>
       <div style="flex:1;border-left:1px solid rgba(255,107,90,.3);padding-left:28px">
-        <div style="font-size:20px;color:var(--ink);line-height:1.55">The order is stopped <b>before</b> it reaches a rail. The agent gets it back as a re-plan and sizes down. <span style="color:var(--ink2)">The rail never sees the violating request.</span></div>
+        <div style="font-size:20px;color:var(--ink);line-height:1.55">is stopped <b>before</b> it reaches a rail. The agent gets it back as a re-plan and sizes down. <span style="color:var(--ink2)">The rail never sees the violating request.</span></div>
       </div>
     </div>
     <div class="kicker" style="margin-top:24px">Prevention is probabilistic. Enforcement is deterministic.</div>
@@ -414,54 +410,35 @@ body[data-mode="present"] .vw-review{display:none}
   <div class="foot"><span>Vishwa · September 2026</span><span>04</span></div>
 </section></div>
 <div class="vw-frame" data-i="4"><section class="slide">
-  <div class="eyebrow">Core technology &nbsp;·&nbsp; Protect</div>
-  <h1>The runtime improves from verified outcomes — not from sharing customer data.</h1>
+  <div class="eyebrow">Core technology <span class="dim">/ 02 of 03</span> &nbsp;·&nbsp; Protect</div>
+  <h1>Selective disclosure: share only the permitted evidence, and still complete the check.</h1>
   <div class="body">
-    <div style="border:1.5px dashed var(--green);border-radius:8px;padding:20px 24px 24px;margin-top:2px">
-      <div class="mono" style="font-size:12.5px;letter-spacing:.14em;color:var(--green-br)">THE INSTITUTION&#8217;S BOUNDARY</div>
-      <div style="display:flex;align-items:center;gap:16px;margin-top:16px">
-        <div style="flex:.8;background:var(--panel2);border:1px solid var(--line);border-radius:5px;padding:16px 18px;text-align:center">
-          <div style="font-size:23px;font-weight:700">Request</div>
-          <div class="mono" style="font-size:11.5px;letter-spacing:.13em;color:var(--green-br);margin-top:6px">LIVE</div>
+    <div style="display:flex;gap:44px;align-items:flex-start;margin-top:10px">
+      <div style="flex:.95">
+        <div style="font-size:132px;font-weight:700;color:var(--green-br);letter-spacing:-.05em;line-height:.9">86%</div>
+        <div style="font-size:27px;font-weight:700;margin-top:12px">validation accuracy</div>
+        <div style="font-size:19px;color:var(--ink2);margin-top:12px;line-height:1.5">Reached using only the evidence fields the institution has permitted &#8212; <b>15 of 35</b>, about <b>43%</b> of the data.</div>
+        <div style="font-size:19px;color:var(--ink2);margin-top:10px;line-height:1.5">Full raw disclosure scores <b>85%</b>. Withholding the data costs nothing.</div>
+        <div class="mono" style="font-size:12.5px;color:var(--faint);margin-top:18px;letter-spacing:.09em">SIMULATED RESULT &#183; NOT CLIENT DATA OR PRODUCTION PERFORMANCE</div>
+      </div>
+
+      <div style="flex:1.05;display:flex;flex-direction:column;gap:14px">
+        <div class="card" style="padding:18px 22px">
+          <div style="font-size:22px;font-weight:700">Data stays inside the institution</div>
+          <div style="font-size:17px;color:var(--ink2);margin-top:7px;line-height:1.45">Raw customer data and hard policy never cross the boundary.</div>
         </div>
-        <div class="arrow" style="flex:none">&#8594;</div>
-        <div style="flex:1.5">
-          <div style="background:rgba(47,191,116,.1);border:1px solid rgba(47,191,116,.45);border-radius:5px;padding:16px 18px;text-align:center">
-            <div style="font-size:23px;font-weight:700">Privacy-preserving multi-agent engine</div>
-            <div class="mono" style="font-size:11.5px;letter-spacing:.13em;color:var(--amber);margin-top:6px">RESEARCH &#183; IN DEVELOPMENT</div>
-          </div>
-          <div style="background:var(--panel);border:1px solid var(--line);border-radius:5px;padding:12px 18px;text-align:center;margin-top:10px;width:72%">
-            <div style="font-size:19px;font-weight:700;color:var(--green-br)">Private execution memory</div>
-            <div class="mono" style="font-size:11.5px;letter-spacing:.13em;color:var(--amber);margin-top:4px">IN DEVELOPMENT</div>
-          </div>
+        <div class="card" style="padding:18px 22px">
+          <div style="font-size:22px;font-weight:700">Only verifiable conclusions cross</div>
+          <div style="font-size:17px;color:var(--ink2);margin-top:7px;line-height:1.45">We pass the validation result and an evidence fingerprint, not the underlying file.</div>
         </div>
-        <div class="arrow" style="flex:none">&#8594;</div>
-        <div style="flex:.85;background:var(--green-dk);border:1px solid var(--green);border-radius:5px;padding:16px 18px;text-align:center">
-          <div style="font-size:23px;font-weight:700;color:#fff">Verified outcome</div>
-          <div class="mono" style="font-size:11.5px;letter-spacing:.13em;color:#BFEBD3;margin-top:6px">LIVE</div>
+        <div style="background:#05080C;border:1px solid var(--line2);border-radius:6px;padding:18px 22px">
+          <div style="font-size:22px;font-weight:700;color:var(--green-br)">The loop is reusable</div>
+          <div style="font-size:17px;color:var(--ink2);margin-top:7px;line-height:1.45">The same validation loop carries to the next customer and the next vertical.</div>
         </div>
       </div>
-      <div style="display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-top:12px">
-        <svg width="150" height="12"><line x1="149" y1="6" x2="14" y2="6" stroke="#2FBF74" stroke-width="1.8" stroke-dasharray="6 4"/><path d="M14 1 L4 6 L14 11 Z" fill="#2FBF74"/></svg>
-        <span class="mono" style="font-size:12.5px;letter-spacing:.12em;color:var(--green-br)">FEEDS BACK</span>
-      </div>
-      <div style="text-align:center;font-size:16px;color:var(--muted);margin-top:8px">Every verified outcome makes the next request faster.</div>
     </div>
-
-    <div style="display:flex;gap:20px;margin-top:20px">
-      <div class="card" style="flex:1;text-align:center;padding:15px">
-        <div style="font-size:20px;font-weight:700">Typed products + policy graph</div>
-        <div class="mono" style="font-size:11.5px;letter-spacing:.13em;color:var(--faint);margin-top:6px">TARGET ARCHITECTURE</div></div>
-      <div class="card" style="flex:1;text-align:center;padding:15px">
-        <div style="font-size:20px;font-weight:700">Bank connectors + audit evidence</div>
-        <div class="mono" style="font-size:11.5px;letter-spacing:.13em;color:var(--faint);margin-top:6px">TARGET ARCHITECTURE</div></div>
-    </div>
-
-    <div style="border-left:3px solid var(--green);padding:2px 0 2px 16px;margin-top:22px">
-      <div style="font-size:25px;font-weight:700">Raw customer data and private policy never leave the institution.</div>
-      <div style="font-size:20px;color:var(--ink2);margin-top:9px">Only <b class="grn">15 of 35 fields</b> ever cross the boundary &#8212; <b>43% of the data, and validation accuracy does not drop</b>.</div>
-    </div>
-    <div class="note" style="margin-top:12px">Only permitted derived signals or selectively disclosed evidence may improve reusable capability; contractual rights govern any reuse. Stage labels are current status, not a claim that every component is in production. Selective-disclosure method and results in appendix A6.</div>
+    <div class="kicker" style="margin-top:26px">The institution gets the answer. It never hands over the file.</div>
+    <div class="note" style="margin-top:11px">Mechanism simulation, co-authored with Parth Gargava, Fidelity Labs &#8212; co-authorship does not imply a commercial commitment or endorsement. Method, sample and the runtime architecture in appendix A6 and A7.</div>
   </div>
   <div class="foot"><span>Vishwa &#183; September 2026</span><span>05</span></div>
 </section></div>
@@ -507,43 +484,54 @@ body[data-mode="present"] .vw-review{display:none}
   <div class="foot"><span>Vishwa &#183; September 2026</span><span>06</span></div>
 </section></div>
 <div class="vw-frame" data-i="6"><section class="slide">
-  <div class="eyebrow">Vertical &nbsp;·&nbsp; Compute <span class="dim">/ in discussion</span></div>
-  <h1>Turning SMM&#8217;s benchmark intelligence into an executable compute market.</h1>
-  <div class="sub">SMM holds the price truth. Supply-side partners make fragmented GPU capacity quotable and deliverable.</div>
+  <div class="eyebrow">Product architecture</div>
+  <h1>Three interlocking rings turn enterprise data into a governed action.</h1>
   <div class="body">
-    <div style="display:flex;gap:32px;align-items:center;margin-top:4px">
-      <div style="flex:1.25;position:relative;height:296px">
-        <svg viewBox="0 0 620 296" style="width:100%;height:296px">
-          <ellipse cx="310" cy="148" rx="304" ry="142" fill="none" stroke="#2FBF74" stroke-width="1.4" opacity=".75"/>
-          <ellipse cx="310" cy="163" rx="212" ry="112" fill="none" stroke="#5B8CFF" stroke-width="1.4" opacity=".75"/>
-          <ellipse cx="310" cy="203" rx="122" ry="62" fill="rgba(150,130,255,.13)" stroke="#9B87FF" stroke-width="1.4"/>
-          <text x="310" y="34" text-anchor="middle" fill="#4FD894" font-family="Archivo" font-size="18" font-weight="700">SMM industry intelligence &amp; market network</text>
-          <text x="310" y="56" text-anchor="middle" fill="#4FD894" font-family="Archivo" font-size="14">experts · suppliers · compute nodes · enterprise buyers · venues</text>
-          <text x="310" y="106" text-anchor="middle" fill="#8FB4FF" font-family="Archivo" font-size="18" font-weight="700">Agent transaction layer</text>
-          <text x="310" y="127" text-anchor="middle" fill="#8FB4FF" font-family="Archivo" font-size="14">discovery · matching · mandate · approval · payment · receipts</text>
-          <text x="310" y="192" text-anchor="middle" fill="#C4B6FF" font-family="Archivo" font-size="17" font-weight="700">SMM price &amp; benchmark data</text>
-          <text x="310" y="213" text-anchor="middle" fill="#C4B6FF" font-family="Archivo" font-size="14">GPU indices · price discovery</text>
-          <text x="310" y="233" text-anchor="middle" fill="#C4B6FF" font-family="Archivo" font-size="14">programmable benchmark</text>
+    <div style="display:flex;gap:40px;align-items:center;margin-top:6px">
+      <div style="flex:1.05">
+        <svg viewBox="0 0 600 340" style="width:100%;height:340px">
+          <ellipse cx="300" cy="170" rx="290" ry="155" fill="none" stroke="#2FBF74" stroke-width="1.5" opacity=".8"/>
+          <ellipse cx="300" cy="200" rx="200" ry="112" fill="none" stroke="#4FD894" stroke-width="1.3" opacity=".6"/>
+          <ellipse cx="300" cy="228" rx="108" ry="68" fill="rgba(150,130,255,.16)" stroke="#9B87FF" stroke-width="1.5"/>
+          <text x="300" y="42" text-anchor="middle" fill="#2FBF74" font-family="Archivo" font-size="19" font-weight="700">Trusted enterprises</text>
+          <text x="300" y="64" text-anchor="middle" fill="#2FBF74" font-family="Archivo" font-size="19" font-weight="700">&amp; market network</text>
+          <text x="300" y="126" text-anchor="middle" fill="#4FD894" font-family="Archivo" font-size="18" font-weight="700">Agent payments</text>
+          <text x="300" y="147" text-anchor="middle" fill="#4FD894" font-family="Archivo" font-size="18" font-weight="700">&amp; workflow engine</text>
+          <text x="300" y="212" text-anchor="middle" fill="#C4B6FF" font-family="Archivo" font-size="21" font-weight="700">MANDATE</text>
+          <text x="300" y="237" text-anchor="middle" fill="#C4B6FF" font-family="Archivo" font-size="21" font-weight="700">POLICY</text>
+          <text x="300" y="262" text-anchor="middle" fill="#C4B6FF" font-family="Archivo" font-size="21" font-weight="700">PROOF</text>
         </svg>
       </div>
+
       <div style="flex:1">
-        <div class="card" style="padding:18px 20px">
-          <div class="lbl">SMM&#8217;s institutional market network</div>
-          <div style="display:flex;gap:22px;margin-top:14px">
-            <div><div style="font-size:28px;font-weight:700;letter-spacing:-.02em">3.8m</div><div class="numlbl" style="margin-top:3px">corporate<br>users</div></div>
-            <div><div style="font-size:28px;font-weight:700;letter-spacing:-.02em">7,900+</div><div class="numlbl" style="margin-top:3px">commodity<br>spot traders</div></div>
-            <div><div style="font-size:28px;font-weight:700;letter-spacing:-.02em">~$104bn</div><div class="numlbl" style="margin-top:3px">annual spot<br>volume</div></div>
-          </div>
-          <div class="mono" style="font-size:11px;letter-spacing:.09em;color:var(--faint);margin-top:11px">SMM&#8217;S PUBLISHED FIGURES</div>
+        <div class="mono" style="font-size:12.5px;letter-spacing:.13em;color:var(--muted)">FIRST DATA AND NETWORKS ONBOARDED</div>
+        <div class="card" style="padding:15px 20px;margin-top:13px">
+          <div style="font-size:21px;font-weight:700">01 &nbsp; Ant Digital</div>
+          <div style="font-size:16px;color:var(--muted);margin-top:4px">Treasury state and products</div>
         </div>
-        <div style="background:#05080C;border:1px solid var(--line2);border-radius:6px;padding:15px 20px;margin-top:16px">
-          <div class="mono" style="font-size:12.5px;letter-spacing:.13em;color:var(--green-br)">BUILT ON THE VISHWA RUNTIME</div>
-          <div style="font-size:19px;font-weight:700;margin-top:7px">Mandate &#183; approval &#183; matching policy &#183; payment &#183; verified receipts &#183; audit</div>
+        <div class="card" style="padding:15px 20px;margin-top:11px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline">
+            <div style="font-size:21px;font-weight:700">02 &nbsp; SMM</div>
+            <div class="mono" style="font-size:11px;letter-spacing:.1em;color:var(--amber)">IN DISCUSSION</div>
+          </div>
+          <div style="font-size:16px;color:var(--muted);margin-top:4px">Price benchmarks and suppliers</div>
+          <div style="display:flex;gap:20px;margin-top:11px;border-top:1px solid var(--line);padding-top:10px">
+            <div><div style="font-size:22px;font-weight:700">3.8m</div><div style="font-size:12.5px;color:var(--faint)">corporate users</div></div>
+            <div><div style="font-size:22px;font-weight:700">7,900+</div><div style="font-size:12.5px;color:var(--faint)">spot traders</div></div>
+            <div><div style="font-size:22px;font-weight:700">~$104bn</div><div style="font-size:12.5px;color:var(--faint)">annual spot volume</div></div>
+          </div>
+        </div>
+        <div class="card" style="padding:15px 20px;margin-top:11px">
+          <div style="font-size:21px;font-weight:700">03 &nbsp; Payments &amp; travel</div>
+          <div style="font-size:16px;color:var(--muted);margin-top:4px">Agent card and settlement scenarios</div>
+        </div>
+        <div style="background:#05080C;border:1px solid var(--line2);border-radius:6px;padding:15px 20px;margin-top:14px">
+          <div style="font-size:19px;font-weight:700">The compute market is the first vertical built on these three rings.</div>
         </div>
       </div>
     </div>
     <div class="kicker" style="margin-top:22px">From a price-reporting agency to an agent-native Bloomberg for compute.</div>
-    <div class="note" style="margin-top:11px">In discussion. Benchmark, data rights, operating roles, venues and commercial terms remain subject to written agreement. Bloomberg is an analogy, not an affiliation.</div>
+    <div class="note" style="margin-top:11px">SMM figures are SMM&#8217;s published numbers. Benchmark, data rights, operating roles, venues and commercial terms remain subject to written agreement. Bloomberg is an analogy, not an affiliation.</div>
   </div>
   <div class="foot"><span>Vishwa &#183; September 2026</span><span>07</span></div>
 </section></div>
@@ -724,34 +712,49 @@ body[data-mode="present"] .vw-review{display:none}
 </section></div>
 <div class="vw-frame" data-i="11"><section class="slide">
   <div class="eyebrow">Appendix A2 &nbsp;·&nbsp; Business model</div>
-  <h1>Land with implementation. Scale with two-sided flow economics.</h1>
+  <h1>Land on subscription. Scale on governed flow.</h1>
+  <div class="sub">Early revenue comes from high-touch matching. As the workflow standardises it shifts to a lower rate on much larger flow.</div>
   <div class="body">
-    <div class="steps">
-      <div class="step"><div class="k">LAUNCH PROGRAM</div><div class="t" style="font-size:31px">$75–150K</div>
-        <div class="d">Paid by institution · current pricing band</div></div>
-      <div class="sarr">→</div>
-      <div class="step"><div class="k">PRODUCTION DEPLOYMENT</div><div class="t" style="font-size:31px">$150–300K</div>
-        <div class="d">Paid by institution · target pricing</div></div>
-      <div class="sarr">→</div>
-      <div class="step"><div class="k">ANNUAL PLATFORM</div><div class="t" style="font-size:31px">$150K–$1M+</div>
-        <div class="d">Paid by institution · target pricing</div></div>
+    <div style="display:flex;gap:18px;margin-top:4px">
+      <div class="card" style="flex:1">
+        <div class="lbl">Supplier workbench</div>
+        <div style="font-size:31px;font-weight:700;color:var(--green-br);margin-top:9px;letter-spacing:-.02em">&#165;299 / entity / mo</div>
+        <div style="font-size:16px;color:var(--ink2);margin-top:9px;line-height:1.45">Certified supplier agents: RFQ, quoting, delivery records.</div>
+        <div style="font-size:15px;color:var(--muted);margin-top:7px">Pro / broker seats &#165;1,999&#8211;4,999</div>
+      </div>
+      <div class="card" style="flex:1">
+        <div class="lbl">Enterprise procurement</div>
+        <div style="font-size:31px;font-weight:700;color:var(--green-br);margin-top:9px;letter-spacing:-.02em">Deployment + annual</div>
+        <div style="font-size:16px;color:var(--ink2);margin-top:9px;line-height:1.45">Buyer agents and policy workflows.</div>
+        <div style="font-size:15px;color:var(--muted);margin-top:7px">Integration &#183; audit &#183; support</div>
+      </div>
+      <div style="flex:1;background:#05080C;border:1px solid var(--line2);border-radius:6px;padding:22px 24px">
+        <div class="lbl" style="color:var(--green-br)">Governed matching</div>
+        <div style="font-size:31px;font-weight:700;color:#fff;margin-top:9px;letter-spacing:-.02em">up to 5%</div>
+        <div style="font-size:16px;color:var(--ink2);margin-top:9px;line-height:1.45">Charged only where we coordinate the transaction.</div>
+        <div style="font-size:15px;color:var(--muted);margin-top:7px">Matching &#183; qualification &#183; delivery</div>
+      </div>
     </div>
-    <div style="display:flex;gap:26px;margin-top:26px">
-      <div class="card" style="flex:1"><div class="lbl">Live Pharos case</div>
-        <div style="font-size:38px;font-weight:700;margin-top:10px;letter-spacing:-.025em">50 bps</div>
-        <div class="mono" style="font-size:13px;color:var(--muted);margin-top:6px;letter-spacing:.1em">CURRENT · COLLECTED ON ONE SIDE</div></div>
-      <div class="arrow" style="width:40px">→</div>
-      <div class="card g" style="flex:1"><div class="lbl" style="color:var(--green-br)">Near-term target</div>
-        <div style="font-size:38px;font-weight:700;margin-top:10px;letter-spacing:-.025em;color:var(--green-br)">50 + 50 = 100 bps</div>
-        <div class="mono" style="font-size:13px;color:var(--muted);margin-top:6px;letter-spacing:.1em">SECOND SIDE NOT YET COLLECTED</div></div>
+
+    <div style="display:flex;gap:18px;margin-top:16px">
+      <div class="card" style="flex:1;padding:16px 20px">
+        <div style="font-size:21px;font-weight:700">5% governed matching</div>
+        <div style="font-size:15px;color:var(--muted);margin-top:4px">Non-standard orders &#183; high-touch coordination</div></div>
+      <div class="card" style="flex:1;padding:16px 20px">
+        <div style="font-size:21px;font-weight:700">1&#8211;1.5% standard flow</div>
+        <div style="font-size:15px;color:var(--muted);margin-top:4px">Repeat orders &#183; governed execution</div></div>
+      <div class="card" style="flex:1;padding:16px 20px">
+        <div style="font-size:21px;font-weight:700">Monthly subscription</div>
+        <div style="font-size:15px;color:var(--muted);margin-top:4px">Seller agents &#183; annual enterprise fees</div></div>
     </div>
-    <div class="card" style="margin-top:22px;border-color:var(--line2)">
-      <div class="mono" style="font-size:15px;letter-spacing:.1em;color:var(--green-br)">REVENUE = GOVERNED FLOW × BPS + ANNUAL PLATFORM FEE</div>
-      <div style="font-size:19px;color:var(--ink2);margin-top:10px">Illustrative scale: $1B governed flow × 50–100 bps = $5–10M flow revenue, plus $150K–$1M+ annual platform fee per institution.</div>
+
+    <div class="card" style="margin-top:20px;border-color:var(--line2)">
+      <div class="mono" style="font-size:15px;letter-spacing:.1em;color:var(--green-br)">REVENUE = AGENT SUBSCRIPTIONS + ENTERPRISE FEES + GOVERNED GMV &#215; RATE</div>
+      <div style="font-size:19px;color:var(--ink2);margin-top:10px">Illustrative, not booked: &#165;1bn of standardised GMV &#215; 1.25% = &#165;12.5M of flow revenue.</div>
     </div>
-    <div class="note" style="margin-top:16px">Founder-reported live economics. Illustrative, not booked. Implementation waived for flagship onboardings to date; bands reflect go-forward pricing. Near-term second side not yet collected.</div>
+    <div class="note" style="margin-top:14px">Pricing in RMB reflects the first market. Bands are proposed go-forward pricing, not booked results; implementation has been waived for flagship onboardings to date.</div>
   </div>
-  <div class="foot"><span>Vishwa · September 2026</span><span>A2</span></div>
+  <div class="foot"><span>Vishwa &#183; September 2026</span><span>A2</span></div>
 </section></div>
 <div class="vw-frame" data-i="12"><section class="slide">
   <div class="eyebrow">Appendix A3 &nbsp;·&nbsp; How the gate works</div>
