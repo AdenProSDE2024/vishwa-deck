@@ -1,0 +1,97 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<title>Vishwa — Seed Round — September 2026</title>
+<link rel="stylesheet" href="deck.css">
+<style>
+@page{size:15in 8.4375in;margin:0}
+/* ===== S1 cover ===== */
+.cover{justify-content:flex-start}
+.cover .topbar{display:flex;justify-content:space-between;font-family:'IBM Plex Mono';font-size:14px;letter-spacing:.15em;color:var(--muted);text-transform:uppercase}
+.cover img.logo{width:272px;margin:40px 0 36px}
+.cover h1{font-size:70px;line-height:1.05;letter-spacing:-.028em;max-width:1120px}
+.cover .h2{font-family:'IBM Plex Mono';font-size:22px;line-height:1.45;color:var(--green-br);margin-top:24px;max-width:1090px}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);margin-top:auto;padding-top:26px}
+.metrics>div{padding-right:28px;border-right:1px solid var(--line)}
+.metrics>div:last-child{border-right:none}
+.metrics .n{font-size:46px;font-weight:700;letter-spacing:-.03em;color:var(--ink)}
+.metrics .t{font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.11em;color:var(--muted);text-transform:uppercase;margin-top:7px;line-height:1.5}
+
+/* ===== S2 category ===== */
+.stack{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.col{padding:0 30px}
+.col:first-child{border-right:1px solid var(--line)}
+.colhead{font-family:'IBM Plex Mono';font-size:15px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;text-align:center;margin-bottom:16px}
+.box{background:var(--panel2);border:1px solid var(--line);border-radius:5px;padding:14px 16px;text-align:center}
+.box .t{font-size:23px;font-weight:700;letter-spacing:-.01em}
+.box .s{font-size:15px;color:var(--muted);margin-top:4px}
+.conn{font-family:'IBM Plex Mono';font-size:14px;color:var(--muted);text-align:center;padding:9px 0}
+.conn b{color:var(--green)}
+.deadbox{background:#000;border:1px solid var(--line2);border-radius:5px;padding:14px;text-align:center;margin-top:10px}
+.deadbox .t{font-family:'IBM Plex Mono';font-weight:700;font-size:19px;letter-spacing:.13em;color:var(--red)}
+.deadbox .s{font-size:14px;color:var(--faint);margin-top:5px}
+.wrapg{border:1.5px solid var(--green);border-radius:6px;padding:10px;margin-top:0}
+.vishwabar{background:var(--green-dk);border:1px solid var(--green);border-radius:5px;padding:13px;text-align:center;margin-top:10px}
+.vishwabar .t{font-size:21px;font-weight:700}
+.vishwabar .s{font-size:14px;color:#BFEBD3;margin-top:4px}
+.banner{background:var(--panel);border-left:3px solid var(--green);border-radius:0 5px 5px 0;padding:14px 20px;margin-bottom:20px}
+.cat h1{font-size:40px}
+.cat .body{padding:8px 0 0}
+.cat .banner{padding:10px 18px;margin-bottom:14px}
+.cat .banner>div:last-child{font-size:18px !important}
+.cat .box{padding:9px 14px}
+.cat .box .t{font-size:20px}
+.cat .box .s{font-size:13.5px}
+.cat .conn{padding:5px 0;font-size:13px}
+.cat .colhead{font-size:13.5px;margin-bottom:11px}
+.cat .deadbox{padding:9px;margin-top:7px}
+.cat .deadbox .t{font-size:16px}
+.cat .deadbox .s{font-size:13px;margin-top:3px}
+.cat .wrapg{padding:7px}
+.cat .vishwabar{padding:10px;margin-top:7px}
+.cat .vishwabar .t{font-size:19px}
+.cat .vishwabar .s{font-size:13px}
+
+/* ===== S3 runtime ===== */
+.chain{display:flex;align-items:stretch;gap:0}
+.node{flex:1;text-align:center}
+.node .b{background:var(--green-dk);border:1px solid var(--green);border-radius:5px;padding:16px 6px;
+  font-size:21px;font-weight:700;letter-spacing:.02em;color:#fff}
+.node.dev .b{background:var(--panel2);border:1px dashed var(--line2);color:var(--ink2)}
+.node .st{font-family:'IBM Plex Mono';font-size:11.5px;letter-spacing:.13em;margin-top:8px;color:var(--green-br)}
+.node.dev .st{color:var(--amber)}
+.gate{width:58px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:2px}
+.gate svg{display:block}
+.ungov{display:flex;align-items:center;gap:0}
+.ubox{flex:1;background:var(--panel2);border:1px solid var(--line);border-radius:4px;padding:12px 6px;text-align:center;font-size:17px;font-weight:700;color:var(--ink2)}
+.uarr{width:104px;text-align:center;font-family:'IBM Plex Mono';font-size:10.5px;color:var(--red);letter-spacing:.02em;line-height:1.45;padding:0 4px}
+
+/* ===== generic step row ===== */
+.steps{display:flex;gap:0;align-items:stretch}
+.step{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:5px;padding:18px 20px}
+.step .k{font-family:'IBM Plex Mono';font-size:13px;font-weight:700;color:var(--green-br);letter-spacing:.1em}
+.step .t{font-size:20px;font-weight:700;margin-top:9px;line-height:1.22;letter-spacing:-.008em}
+.step .d{font-size:15px;color:var(--muted);margin-top:8px;line-height:1.42}
+.sarr{width:44px;display:flex;align-items:center;justify-content:center;color:var(--green);font-size:22px}
+
+/* ===== S9 team ===== */
+.team{display:grid;grid-template-columns:repeat(5,1fr);gap:17px}
+.person img.h{width:86px;height:86px;border-radius:50%;display:block}
+.person .nm{font-size:21px;font-weight:700;letter-spacing:-.012em;margin-top:11px}
+.person .ro{font-family:'IBM Plex Mono';font-size:10.5px;letter-spacing:.07em;color:var(--green-br);text-transform:uppercase;margin-top:6px;line-height:1.5}
+.person .st{font-size:25px;font-weight:700;color:var(--green-br);letter-spacing:-.02em;margin-top:11px;line-height:1.1}
+.person .st span{font-size:14px;color:var(--ink2);font-weight:700;display:block;letter-spacing:0;margin-top:3px}
+.person .de{font-size:13px;color:var(--muted);margin-top:9px;line-height:1.42}
+.chips{display:flex;gap:5px;align-items:center;margin-top:11px;flex-wrap:wrap}
+.chips img{height:38px;background:#fff;border-radius:3px;padding:3px 5px}
+.chips .txt{font-family:'IBM Plex Mono';font-size:9.5px;letter-spacing:.04em;color:var(--ink);background:var(--panel3);border:1px solid var(--line);border-radius:3px;padding:4px 5px}
+
+/* ===== tables ===== */
+table.cmp{width:100%;border-collapse:collapse;font-size:15px}
+table.cmp th{font-family:'IBM Plex Mono';font-size:11.5px;letter-spacing:.09em;color:var(--muted);text-transform:uppercase;
+  text-align:center;padding:9px 5px;border-bottom:1px solid var(--line2);font-weight:600;vertical-align:bottom}
+table.cmp td{padding:10px 5px;border-bottom:1px solid var(--line);text-align:center;color:var(--ink2)}
+table.cmp td:first-child{text-align:left;color:var(--ink);font-weight:600;padding-left:2px}
+table.cmp tr.me td{background:var(--green-tint);color:var(--green-br);font-weight:700;border-bottom:1px solid rgba(47,191,116,.35)}
+table.cmp tr.me td:first-child{color:var(--green-br)}
+.y{color:var(--green-br);font-weight:700}.n{color:var(--faint)}.p{color:var(--amber);font-size:13px;font-family:'IBM Plex Mono'}
+</style></head><body>
+
