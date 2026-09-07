@@ -31,11 +31,9 @@ def main():
 
     print(run([sys.executable, 'build.py'], cwd=DECK).strip())
 
-    for f in ('deck.html', 'deck.css'):
-        shutil.copy2(os.path.join(DECK, f), os.path.join(WEB, f))
-    run([sys.executable, 'build_web.py', '--public'], cwd=WEB)
+    run([sys.executable, os.path.join(WEB, 'build_web.py'), '--public'], cwd=DECK)
 
-    body = open(os.path.join(WEB, 'public.html'), encoding='utf8').read()
+    body = open(os.path.join(DECK, 'public.html'), encoding='utf8').read()
     page = ('<!DOCTYPE html>\n<html lang="en"><head><meta charset="utf-8">\n'
             '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
             '<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">\n'

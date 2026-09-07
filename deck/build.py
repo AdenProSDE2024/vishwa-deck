@@ -17,7 +17,7 @@ That is the whole point: hand-numbering broke three times before this existed.
 Cross-references to appendix pages are written as {{REF:a2-business-model}} and resolved to
 the label that file ends up with, so moving an appendix page cannot leave a dangling "A5".
 """
-import glob, os, re, subprocess, sys, shutil
+import glob, os, re, subprocess, sys, shutil, time
 
 DATE   = '2026-09-09'
 CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
@@ -55,14 +55,43 @@ def assemble():
 
 
 def render(html):
-    pdf = f'Vishwa_Pitch_{DATE}.pdf'
-    prof = f'/tmp/cr_build_{os.getpid()}'   # per-run: two builds sharing one profile hang Chrome
+    # Chrome 152's headless mode writes the PDF in a few seconds but then does NOT
+    # exit (it keeps GCM/updater work alive), so subprocess.run() waits forever.
+    # Launch it, wait for the file to appear and stop growing, then kill it.
+    # Render to a per-run temp path: two Chromes sharing one --print-to-pdf target
+    # corrupt it, and an orphan from a killed build will do that silently.
+    pdf, tmp = f'Vishwa_Pitch_{DATE}.pdf', f'/tmp/vp_{os.getpid()}.pdf'
+    prof = f'/tmp/cr_build_{os.getpid()}'
     shutil.rmtree(prof, ignore_errors=True)
-    subprocess.run([CHROME, '--headless', '--disable-gpu', f'--user-data-dir={prof}',
-                    '--no-first-run', '--no-default-browser-check', '--no-pdf-header-footer',
-                    f'--print-to-pdf={pdf}', f'file://{HERE}/deck.html'], capture_output=True)
-    return pdf
+    if os.path.exists(tmp): os.remove(tmp)
 
+    p = subprocess.Popen([CHROME, '--headless', '--disable-gpu', f'--user-data-dir={prof}',
+                          '--no-first-run', '--no-default-browser-check', '--no-pdf-header-footer',
+                          f'--print-to-pdf={tmp}', f'file://{HERE}/deck.html'],
+                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    size, stable, deadline, done = -1, 0, time.time() + 300, False
+    try:
+        while time.time() < deadline:
+            if p.poll() is not None:
+                done = True; break                  # older Chrome: exits on its own
+            cur = os.path.getsize(tmp) if os.path.exists(tmp) else -1
+            stable = stable + 1 if cur == size and cur > 0 else 0
+            size = cur
+            if stable >= 3:
+                done = True; break                  # unchanged for ~3s: finished writing
+            time.sleep(1)
+    finally:
+        p.terminate()
+        try: p.wait(timeout=10)
+        except subprocess.TimeoutExpired: p.kill()
+
+    if not done:
+        sys.exit('Chrome never finished writing the PDF (300s).')
+    if not os.path.exists(tmp) or os.path.getsize(tmp) < 50_000:
+        sys.exit(f'Chrome produced no usable PDF at {tmp}')
+    os.replace(tmp, pdf)
+    shutil.rmtree(prof, ignore_errors=True)
+    return pdf
 
 def main():
     html, pages, apx, ref = assemble()

@@ -1,4 +1,8 @@
 import re, base64, json, sys, os
+
+# Run this from deck/ — deck.html, deck.css, fonts/ and assets/ are resolved
+# relative to the cwd. shell.html is the one file that lives beside the script.
+HERE = os.path.dirname(os.path.abspath(__file__))
 PUBLIC = '--public' in sys.argv   # public build ships no speaker notes
 sys.path.insert(0, '.')
 try:
@@ -43,7 +47,7 @@ meta = [{'label': labels[i], 'title': TITLES.get(i+1, 'Appendix ' + labels[i]),
          'budget': 0 if PUBLIC else BUDGET.get(i+1,0)} for i in range(len(sections))]
 
 open('artifact.html','w',encoding='utf8').write(
-    open('shell.html',encoding='utf8').read()
+    open(os.path.join(HERE,'shell.html'),encoding='utf8').read()
       .replace('/*DECKCSS*/', css)
       .replace('/*INLINECSS*/', inline)
       .replace('<!--SLIDES-->', '\n'.join(f'<div class="vw-frame" data-i="{i}">{s}</div>'
