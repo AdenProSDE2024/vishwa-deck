@@ -1,0 +1,205 @@
+<title>Vishwa Seed Pitch</title>
+<style>
+/*DECKCSS*/
+/*INLINECSS*/
+
+/* ── viewer chrome ───────────────────────────────────────────────────────────
+   Single-theme on purpose: this is a window onto a deck that is itself
+   committed to one dark world, so the chrome uses the deck's own tokens.     */
+body{
+  background:#080C11; color:var(--ink);
+  font-family:'Archivo',Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.vw-bar{
+  position:sticky; top:0; z-index:50;
+  display:flex; align-items:center; gap:20px;
+  padding:11px 20px; background:rgba(8,12,17,.94);
+  backdrop-filter:blur(10px); border-bottom:1px solid var(--line);
+}
+.vw-name{font-size:15px;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
+.vw-name span{color:var(--green-br)}
+.vw-spacer{flex:1}
+.vw-btn{
+  font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--ink2); background:var(--panel);
+  border:1px solid var(--line); border-radius:4px; padding:7px 12px; cursor:pointer;
+}
+.vw-btn:hover{border-color:var(--line2);color:var(--ink)}
+.vw-btn[aria-pressed="true"]{background:var(--green-dk);border-color:var(--green);color:#fff}
+.vw-btn:focus-visible{outline:2px solid var(--green-br);outline-offset:2px}
+.vw-count{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);
+  letter-spacing:.08em;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* slide scaling: slides are authored at 1440×810 and scaled to whatever width they get */
+.vw-frame{position:relative;width:100%;height:calc(810px * var(--s,1));overflow:hidden;
+  border:1px solid var(--line);border-radius:6px;background:var(--bg)}
+.vw-frame .slide{transform:scale(var(--s,1));transform-origin:top left;
+  width:1440px;height:810px;flex:none;position:absolute;top:0;left:0}
+
+/* review mode */
+.vw-review{max-width:1180px;margin:0 auto;padding:22px 20px 80px;
+  display:flex;flex-direction:column;gap:16px}
+.vw-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.13em;
+  color:var(--faint);text-transform:uppercase;margin-bottom:-8px}
+
+/* presenter mode */
+.vw-pres{display:none;padding:16px 20px 20px;gap:18px;
+  grid-template-columns:minmax(0,1.55fr) minmax(300px,1fr);align-items:start}
+body[data-mode="present"] .vw-pres{display:grid}
+body[data-mode="present"] .vw-review{display:none}
+.vw-side{display:flex;flex-direction:column;gap:14px;position:sticky;top:74px}
+.vw-clock{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px 18px}
+.vw-time{font-size:46px;font-weight:700;letter-spacing:-.03em;line-height:1;
+  font-variant-numeric:tabular-nums}
+.vw-time.ok{color:var(--green-br)} .vw-time.warn{color:var(--amber)} .vw-time.over{color:var(--red)}
+.vw-pace{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.09em;
+  color:var(--muted);margin-top:9px;text-transform:uppercase}
+.vw-ctrls{display:flex;gap:8px;margin-top:14px}
+.vw-notes{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:18px 20px}
+.vw-notes h3{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;
+  color:var(--green-br);text-transform:uppercase;font-weight:600;margin-bottom:12px}
+.vw-notes p{font-size:17px;line-height:1.6;margin-bottom:12px;color:var(--ink)}
+.vw-notes p.dir{font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.55;
+  color:var(--amber);background:rgba(231,180,90,.09);border-left:3px solid var(--amber);
+  padding:9px 12px}
+.vw-next{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px 16px}
+.vw-next .lbl{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;
+  color:var(--faint);text-transform:uppercase;margin-bottom:8px}
+.vw-next .t{font-size:17px;font-weight:700}
+.vw-hint{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint);
+  letter-spacing:.07em;text-align:center;padding:0 0 26px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media (max-width:900px){
+  .vw-pres{grid-template-columns:1fr}
+  .vw-side{position:static}
+}
+</style>
+
+<div class="vw-bar">
+  <div class="vw-name">Vishwa <span>Seed Pitch</span></div>
+  <div class="vw-count" id="cnt">01 &middot; Cover</div>
+  <div class="vw-spacer"></div>
+  <button class="vw-btn" id="mode" aria-pressed="false">Presenter</button>
+</div>
+
+<div class="vw-review" id="review"><!--SLIDES--></div>
+
+<div class="vw-pres" id="pres">
+  <div id="stage"></div>
+  <div class="vw-side">
+    <div class="vw-clock">
+      <div class="vw-time ok" id="clock">0:00</div>
+      <div class="vw-pace" id="pace">Not started &middot; 4:00 total</div>
+      <div class="vw-ctrls">
+        <button class="vw-btn" id="play">Start</button>
+        <button class="vw-btn" id="reset">Reset</button>
+      </div>
+    </div>
+    <div class="vw-notes"><h3 id="ntitle">Cover</h3><div id="ntext"></div></div>
+    <div class="vw-next"><div class="lbl">Next</div><div class="t" id="nnext">&mdash;</div></div>
+  </div>
+</div>
+
+<div class="vw-hint">&larr; &rarr; slides &nbsp;&middot;&nbsp; P presenter &nbsp;&middot;&nbsp; S start / pause</div>
+
+<script>
+const META = /*META*/;
+const PUBLIC = /*PUBLIC*/;
+const frames = [...document.querySelectorAll('.vw-frame')];
+const review = document.getElementById('review'), pres = document.getElementById('pres');
+const stage = document.getElementById('stage');
+let cur = 0, mode = 'review', t = 0, running = false, tick = null;
+
+function scale(){
+  requestAnimationFrame(() => {
+    (mode === 'present' ? [frames[cur]] : frames).forEach(f => {
+      if (!f.isConnected) return;
+      const w = f.clientWidth;
+      if (w > 0) f.style.setProperty('--s', w / 1440);
+    });
+  });
+}
+function paint(){
+  document.getElementById('cnt').textContent =
+    `${META[cur].label} \u00B7 ${META[cur].title}`;
+  if (mode === 'present'){
+    stage.replaceChildren(frames[cur]);
+    const m = META[cur];
+    document.getElementById('ntitle').textContent = m.title;
+    const box = document.getElementById('ntext');
+    box.replaceChildren();
+    (m.notes || 'No notes for this page — it is appendix material.')
+      .split(/\n\s*\n/).forEach(para => {
+        const p = document.createElement('p');
+        p.textContent = para.replace(/\s*\n\s*/g,' ').trim();
+        if (p.textContent.startsWith('[')) p.className = 'dir';
+        box.appendChild(p);
+      });
+    document.getElementById('nnext').textContent =
+      cur + 1 < META.length ? META[cur+1].title : 'End of deck';
+  }
+  scale();
+}
+function setMode(next){
+  mode = next; document.body.dataset.mode = next;
+  const b = document.getElementById('mode');
+  b.setAttribute('aria-pressed', next === 'present');
+  b.textContent = next === 'present' ? 'Review' : 'Presenter';
+  if (next === 'review'){ review.replaceChildren(...frames); }
+  paint(); scale();
+}
+function go(d){
+  cur = Math.min(Math.max(cur + d, 0), META.length - 1);
+  if (mode === 'review') frames[cur].scrollIntoView({block:'center', behavior:'smooth'});
+  paint();
+}
+// clock: counts up, compared against the cumulative budget for the slide you are on
+function budgetTo(i){ return META.slice(0, i+1).reduce((a,m)=>a+(m.budget||0),0); }
+function fmt(s){ return `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`; }
+function clockPaint(){
+  const el = document.getElementById('clock');
+  el.textContent = fmt(t);
+  const target = budgetTo(cur), diff = t - target;
+  el.className = 'vw-time ' + (diff > 15 ? 'over' : diff > 5 ? 'warn' : 'ok');
+  document.getElementById('pace').textContent = !running && t === 0
+    ? 'Not started \u00B7 4:00 total'
+    : `Target ${fmt(target)} \u00B7 ${diff >= 0 ? '+' : '\u2212'}${fmt(Math.abs(diff))}`;
+}
+function toggleRun(){
+  running = !running;
+  document.getElementById('play').textContent = running ? 'Pause' : 'Start';
+  clearInterval(tick);
+  if (running) tick = setInterval(() => { t++; clockPaint(); }, 1000);
+}
+if (PUBLIC){
+  document.getElementById('mode').remove();
+  document.querySelector('.vw-hint').textContent = '\u2190 \u2192 to move between slides';
+} else {
+  document.getElementById('mode').onclick = () => setMode(mode === 'review' ? 'present' : 'review');
+}
+document.getElementById('play').onclick = toggleRun;
+document.getElementById('reset').onclick = () => {
+  running = false; clearInterval(tick); t = 0;
+  document.getElementById('play').textContent = 'Start'; clockPaint();
+};
+addEventListener('keydown', e => {
+  if (e.target.matches('input,textarea')) return;
+  if (e.key === 'ArrowRight' || e.key === 'PageDown'){ e.preventDefault(); go(1); }
+  else if (e.key === 'ArrowLeft' || e.key === 'PageUp'){ e.preventDefault(); go(-1); }
+  else if (e.key.toLowerCase() === 'p' && !PUBLIC){ setMode(mode === 'review' ? 'present' : 'review'); }
+  else if (e.key.toLowerCase() === 's' && mode === 'present'){ toggleRun(); }
+});
+addEventListener('resize', scale);
+// keep the counter honest while scrolling the review column
+new IntersectionObserver(es => {
+  if (mode !== 'review') return;
+  es.forEach(en => { if (en.isIntersecting){ cur = +en.target.dataset.i; paint(); } });
+}, {threshold:.55}).observe ? frames.forEach(f => {
+  new IntersectionObserver(es => {
+    if (mode !== 'review') return;
+    es.forEach(en => { if (en.isIntersecting){ cur = +en.target.dataset.i; paint(); } });
+  }, {threshold:.55}).observe(f);
+}) : null;
+scale(); paint(); clockPaint();
+</script>

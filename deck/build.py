@@ -21,7 +21,7 @@ import glob, os, re, subprocess, sys, shutil
 
 DATE   = '2026-09-09'
 CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
-MIRROR = '/Users/aden/Documents/Dev/whoIs/vishwa-pitch'
+MIRROR = os.path.expanduser('~/Documents/Dev/whoIs/vishwa-pitch')
 WPM, SLIDE_CHANGE = 100.0, 2.0
 SYSFONTS = ('Lucida','Menlo','Helvetica','Arial','Times','Courier')
 BANNED   = re.compile(r'\[NEED|CONFIDENTIAL|TODO|TBD|DRAFT\b|placeholder', re.I)
@@ -56,7 +56,7 @@ def assemble():
 
 def render(html):
     pdf = f'Vishwa_Pitch_{DATE}.pdf'
-    prof = '/tmp/cr_build'
+    prof = f'/tmp/cr_build_{os.getpid()}'   # per-run: two builds sharing one profile hang Chrome
     shutil.rmtree(prof, ignore_errors=True)
     subprocess.run([CHROME, '--headless', '--disable-gpu', f'--user-data-dir={prof}',
                     '--no-first-run', '--no-default-browser-check', '--no-pdf-header-footer',

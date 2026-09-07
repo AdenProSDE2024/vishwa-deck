@@ -4,9 +4,16 @@ Point a new session at this file. Everything it needs is here.
 
 ## Where things are
 
-    ~/Documents/ChatGPT/Investor Rel/deck-rewrite/v2/     source of truth, edit here
-    ~/Documents/Dev/whoIs/vishwa-pitch/                   mirror, overwritten by every build
-    /private/tmp/vishwa-publish/site/                     the git checkout that publishes
+    ~/Documents/Dev/vishwa-deck/          the git repo — edit, commit and publish here
+      deck/                               slides, build, assets, fonts
+      web/                                public web page builder
+      publish.py                          build + verify + commit + push, one command
+      ef5aabaf9c89/                       the published page (generated, do not hand-edit)
+    ~/Documents/Dev/whoIs/vishwa-pitch/   mirror of the deliverables, rewritten each build
+
+The repo is the only source of truth. `~/Documents/ChatGPT/Investor Rel/deck-rewrite/v2/`
+is a pre-repo snapshot and must not be edited — two copies is how `notes.py` and
+`deck.html` silently diverged during the original build.
 
 The deck is 11 presented slides plus a 9-page appendix, one slide per file:
 
@@ -45,15 +52,23 @@ at the first close tag and silently eats the rest of the slide. This broke two p
 
 ## Publish
 
-    # public web page + pptx download + repo source, all in one commit
-    cp deck.html deck.css /private/tmp/vishwa-publish/
-    cd /private/tmp/vishwa-publish && python3 build_web.py --public
-    # wrap public.html in a doctype/head, write to site/ef5aabaf9c89/index.html
-    # copy the clean pptx to site/ef5aabaf9c89/
-    # rsync the source into site/deck/ (respecting .gitignore)
-    cd site && git add -A && git commit && git push origin main
+    cd ~/Documents/Dev/vishwa-deck
+    python3 publish.py "raised the privacy headline"     # build, verify, commit, push
+    python3 publish.py --dry                             # everything except the commit
 
-GitHub Pages CDN caches about 10 minutes. Verify with `curl` before saying it is live.
+`publish.py` builds the deck, rebuilds the public page **without** speaker notes, then
+refuses to commit if any note text or internal phrase reached that page. GitHub Pages
+caches about 10 minutes — `curl` the URL before telling anyone it is live.
+
+## Version history and rollback
+
+    git log --oneline -- deck/pages/06-privacy.html   # what changed on one page
+    git diff HEAD~1 -- deck/pages/06-privacy.html     # what the last change did
+    git checkout <sha> -- deck/pages/06-privacy.html  # restore just that page
+    python3 publish.py "revert privacy page"
+
+Because each slide is its own file, history and rollback are per-slide. Reverting one page
+never touches another.
 
 ## What must never be committed or published
 

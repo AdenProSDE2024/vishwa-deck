@@ -1,0 +1,14 @@
+# regenerable
+deck/deck.html
+deck/slides_png/
+web/deck.html
+web/deck.css
+web/public.html
+web/artifact.html
+**/__pycache__/
+# internal only — these hardcode speaker notes and internal positioning
+deck/notes.py
+deck/SCRIPT.md
+deck/presenter-inline.html
+*_presenter.pptx
+*_speaker-notes.pdf
