@@ -92,3 +92,15 @@ Do not remove them:
 - market figures: **market context**, not Vishwa revenue
 
 Do not state what competitors do not do. Say what Vishwa does and let the gap be inferred.
+
+## Chrome does not exit after --print-to-pdf
+
+Chrome 152 writes the PDF in a few seconds and then keeps running (GCM, updater).
+`subprocess.run` on it waits forever, which looks exactly like a slow render — it is
+not. `build.py` now launches Chrome with Popen, waits for the PDF to stop growing,
+then kills it. A full 20-slide build takes about 9 seconds.
+
+If a build is ever killed mid-render, its Chrome child survives and keeps writing the
+same PDF path. Two Chromes on one `--print-to-pdf` target corrupt it silently. Clean up
+with `pkill -f "print-to-pdf=Vishwa_Pitch"`; renders go to a per-pid temp file and are
+moved into place only after a size check.
