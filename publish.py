@@ -31,6 +31,9 @@ def main():
 
     print(run([sys.executable, 'build.py'], cwd=DECK).strip())
 
+    # keep design/vishwa-deck-body.html in step with the slides it exports
+    run([sys.executable, os.path.join(R, 'design', 'export_for_design.py')], cwd=R)
+
     run([sys.executable, os.path.join(WEB, 'build_web.py'), '--public'], cwd=DECK)
 
     body = open(os.path.join(DECK, 'public.html'), encoding='utf8').read()
