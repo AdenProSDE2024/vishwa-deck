@@ -28,23 +28,48 @@ BANNED   = re.compile(r'\[NEED|CONFIDENTIAL|TODO|TBD|DRAFT\b|placeholder', re.I)
 HERE = os.path.dirname(os.path.abspath(__file__)); os.chdir(HERE)
 
 
+VC = '--vc' in sys.argv          # longer investor version: 5 extra body slides
+# pages-vc/ holds the slides that only the VC cut carries. These two already exist as
+# appendix pages in the short deck, so the VC cut promotes them into the body instead of
+# duplicating them — they are removed from the appendix in that build.
+VC_PROMOTE = ['appendix/a8-competition.html', 'appendix/a2-business-model.html']
+
+
 def collect():
     pages = sorted(glob.glob('pages/*.html'))
     apx   = sorted(glob.glob('appendix/*.html'), key=lambda p: int(re.search(r'/a(\d+)', p).group(1)))
+    if VC:
+        pages = sorted(pages + glob.glob('pages-vc/*.html'), key=lambda p: os.path.basename(p))
+        at = max(i for i, f in enumerate(pages) if f.startswith('pages-vc/')) + 1
+        pages[at:at] = VC_PROMOTE
+        apx = [f for f in apx if f not in VC_PROMOTE]
     labels = {}
     for i, f in enumerate(pages, start=1): labels[f] = f'{i:02d}'
     for i, f in enumerate(apx,   start=1): labels[f] = f'A{i}'
     ref = {os.path.splitext(os.path.basename(f))[0]: labels[f] for f in apx}
-    return pages, apx, labels, ref
+    # a promoted page is no longer in the appendix, so "appendix {{REF:x}}" pointing at it
+    # would dangle. Map it to its body slide number and let assemble() drop the word.
+    promoted = {os.path.splitext(os.path.basename(f))[0]: labels[f]
+                for f in pages if f.startswith('appendix/')}
+    return pages, apx, labels, ref, promoted
 
 
 def assemble():
-    pages, apx, labels, ref = collect()
+    pages, apx, labels, ref, promoted = collect()
     out = [open('head.html', encoding='utf8').read()]
     for f in pages + apx:
-        s = open(f, encoding='utf8').read().replace('{{NUM}}', labels[f])
+        s = open(f, encoding='utf8').read()
+        if VC and f in VC_PROMOTE:
+            # promoted into the body: drop the "Appendix {{NUM}} · " eyebrow prefix,
+            # otherwise it reads "Appendix 13" in the middle of the deck
+            s = re.sub(r'(<div class="eyebrow">)Appendix \{\{NUM\}\}\s*(?:&nbsp;)?\s*(?:·|&#183;)\s*(?:&nbsp;)?\s*',
+                       lambda m: m.group(1) + '', s, count=1)
+        s = s.replace('{{NUM}}', labels[f])
+        s = re.sub(r'(?:appendix|Appendix)\s+\{\{REF:([a-z0-9\-]+)\}\}',
+                   lambda m: f'slide {promoted[m.group(1)]}' if m.group(1) in promoted
+                             else f'appendix {ref.get(m.group(1), "A?")}', s)
         s = re.sub(r'\{\{REF:([a-z0-9\-]+)\}\}',
-                   lambda m: ref.get(m.group(1), 'A?'), s)
+                   lambda m: promoted.get(m.group(1)) or ref.get(m.group(1), 'A?'), s)
         out.append(s)
     if '--presenter' in sys.argv and os.path.exists('presenter-inline.html'):
         out.append('\n' + open('presenter-inline.html', encoding='utf8').read())
@@ -60,7 +85,8 @@ def render(html):
     # Launch it, wait for the file to appear and stop growing, then kill it.
     # Render to a per-run temp path: two Chromes sharing one --print-to-pdf target
     # corrupt it, and an orphan from a killed build will do that silently.
-    pdf, tmp = f'Vishwa_Pitch_{DATE}.pdf', f'/tmp/vp_{os.getpid()}.pdf'
+    stem = f'Vishwa_VC_Pitch_{DATE}' if VC else f'Vishwa_Pitch_{DATE}'
+    pdf, tmp = f'{stem}.pdf', f'/tmp/vp_{os.getpid()}.pdf'
     prof = f'/tmp/cr_build_{os.getpid()}'
     shutil.rmtree(prof, ignore_errors=True)
     if os.path.exists(tmp): os.remove(tmp)
@@ -121,13 +147,19 @@ def main():
     notes = {}
     if want_notes:
         try:
-            sys.path.insert(0, HERE); from notes import SLIDE_NOTES; notes = SLIDE_NOTES
+            sys.path.insert(0, HERE)
+            import notes as _n
+            byfile = getattr(_n, 'NOTES_BY_FILE', {})
+            notes = {i: byfile[os.path.splitext(os.path.basename(f))[0]]
+                     for i, f in enumerate(pages, start=1)
+                     if os.path.splitext(os.path.basename(f))[0] in byfile}
         except Exception as e:
             print('note: notes.py unavailable —', e)
 
     made = []
-    for with_notes, name in ((False, f'Vishwa_Pitch_{DATE}.pptx'),
-                             (True,  f'Vishwa_Pitch_{DATE}_presenter.pptx')):
+    stem = f'Vishwa_VC_Pitch_{DATE}' if VC else f'Vishwa_Pitch_{DATE}'
+    for with_notes, name in ((False, f'{stem}.pptx'),
+                             (True,  f'{stem}_presenter.pptx')):
         if with_notes and not notes: continue
         prs = Presentation(); prs.slide_width, prs.slide_height = Inches(13.333), Inches(7.5)
         for i, p in enumerate(pngs, start=1):

@@ -10,3 +10,4 @@ SCRIPT.md
 
 # internal presenter overlay — hardcodes speaker notes, never commit
 presenter-inline.html
+out_slides/
