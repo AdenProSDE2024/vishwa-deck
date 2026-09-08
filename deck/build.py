@@ -150,7 +150,25 @@ def main():
             sys.path.insert(0, HERE)
             import notes as _n
             byfile = getattr(_n, 'NOTES_BY_FILE', {})
-            notes = {i: byfile[os.path.splitext(os.path.basename(f))[0]]
+            def unwrap(s):
+                # notes.py is hard-wrapped for reading in the file. A notes pane turns every
+                # one of those line breaks into its own paragraph, which chops sentences in
+                # half. Join wrapped lines; keep blank lines and bracketed headers as breaks.
+                out = []
+                for para in s.strip().split('\n\n'):
+                    lines = [l.strip() for l in para.split('\n') if l.strip()]
+                    buf = []
+                    for l in lines:
+                        if l.startswith(('[', '->')):
+                            if buf: out.append(' '.join(buf)); buf = []
+                            out.append(l)
+                        else:
+                            buf.append(l)
+                    if buf: out.append(' '.join(buf))
+                    out.append('')
+                return '\n'.join(out).strip()
+
+            notes = {i: unwrap(byfile[os.path.splitext(os.path.basename(f))[0]])
                      for i, f in enumerate(pages, start=1)
                      if os.path.splitext(os.path.basename(f))[0] in byfile}
         except Exception as e:
