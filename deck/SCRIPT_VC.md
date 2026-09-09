@@ -1,5 +1,5 @@
 Vishwa — VC pitch script
-16 body + 9 appendix. 100 wpm + 2s per slide change.
+17 body + 9 appendix. 100 wpm + 2s per slide change.
 Indented plain lines are spoken. [ bracketed ] blocks are not spoken and are not timed.
 
 ========================================================================
@@ -67,18 +67,43 @@ SLIDE 04   21s   (running 2:09)   ·   The gap
     This page defines "mandate" — the six clauses an institution pins down before an agent acts. "Authority" is the clause that says what it may do. Once said here, the word is free to use for the rest of the pitch.
 
 ========================================================================
-SLIDE 05   48s   (running 2:57)
+SLIDE 05   46s   (running 2:55)   ·   The problem
    Rails secure each box. Nobody secures the arrows.
 
-  In a multi-agent financial workflow, different agents may secure their own steps, but the handoff between steps remains exposed. Published MAST and NeurIPS report multi-agent failure rates up to 86.7% on benchmark tasks.
-  But we put a gate on every transition. If an order breaches policy, it stops before the rail and returns as a re-plan.
-  The model may be probabilistic. The institution's hard constraints are not. They are enforced at every transition, 100% of the time.
+  Institutions already know what to check - those six clauses.
+  The problem is where. Every rail secures its own box, so the exposure is in the handoffs:
+  when one agent passes an action to another, or when a plan becomes an order.
+  Published MAST and NeurIPS research puts multi-agent failure rates as high as 86% on
+  benchmark tasks. And errors do not stay local. They compound from the first step to the last.
 
-  [ RESERVE — not spoken ]
-    Slow down. This is the core and the line they will repeat. The slide says "up to 86%"; the published MAST/NeurIPS range is 41–86.7%, and it is their data, not ours. Say so if asked. Replay and Improve are marked IN DEV on purpose — do not claim them as live.
+  [ RESERVE - not spoken ]
+    This is the problem page. Do not answer it here - the next page is the answer.
+    The 86% is published MAST/NeurIPS data, not ours; the published range starts at 41%. Say
+    that if asked, and the chip on the slide says it too.
+    Do not use the word "deterministic" yet. It only lands as a contrast with "probabilistic",
+    and that pair is the payoff line on the next page.
 
 ========================================================================
-SLIDE 06   31s   (running 3:28)   ·   Core technology
+SLIDE 06   39s   (running 3:34)
+   The same six clauses, checked at every transition — not once at the door.
+
+  So the same six clauses get checked at every transition, not once at the door.
+  A gate on every handoff, verified against a mandate the agent cannot change.
+  If an order breaches a policy limit, it stops before the rail and comes back as a re-plan.
+  The rail never sees it.
+  
+  The model may be probabilistic. The institution's hard constraints are not.
+
+  [ RESERVE - not spoken ]
+    Slow down here. "Prevention is probabilistic. Enforcement is deterministic." is the line
+    they will repeat back to you.
+    Replay and Improve are marked IN DEV on purpose - do not claim them as live. The five to
+    the left of them are.
+    This page answers the "one gate or seven?" question that page 04's single arch can raise:
+    one set of checks, applied at every transition.
+
+========================================================================
+SLIDE 07   31s   (running 4:05)   ·   Core technology
    The runtime improves from verified outcomes — not by sharing customer data.
 
   Those verified outcomes are also the basis for improvement. We are building a feedback loop that uses each outcome to make the next request faster.
@@ -88,7 +113,7 @@ SLIDE 06   31s   (running 3:28)   ·   Core technology
     The page labels every component's stage — LIVE, IN DEVELOPMENT, RESEARCH, TARGET ARCHITECTURE — on purpose. Volunteer that: it is the reason the page is credible. Do not present the engine as shipped; it is research and in development. Say "Fidelity Labs" clearly, then pause. If pressed for a number: 86% validation accuracy on partial disclosure against 85% on full disclosure — a simulated mechanism, figures in appendix A5. Lead with the zero delta, never with 86% alone; on its own it reads as "wrong 14% of the time".
 
 ========================================================================
-SLIDE 07   57s   (running 4:24)   ·   Product loop
+SLIDE 08   57s   (running 5:01)   ·   Product loop
    The loop closes: every verified outcome returns as a better check.
 
   Here is how it looks like. A customer gives Vishwa a request in plain English. Vishwa returns an approval-ready transaction with matched products, evidence, aligned terms and execution instructions.
@@ -100,7 +125,7 @@ SLIDE 07   57s   (running 4:24)   ·   Product loop
     The $5M / 90-day request at the bottom is the one concrete picture on this page. Point at what it returns; don't read the seven items.
 
 ========================================================================
-SLIDE 08   62s   (running 5:26)
+SLIDE 09   62s   (running 6:03)
    Three interlocking rings turn enterprise data into a governed action.
 
   after product loop, The next question is what makes it reusable across different products and institutions.
@@ -117,7 +142,7 @@ SLIDE 08   62s   (running 5:26)
     Focus：用左边的三层解释"为什么能复用"，再用右边各家的用例说明"复用到哪里"。SMM 的数字要带上，并明确数字属于 SMM 的现有业务规模。
 
 ========================================================================
-SLIDE 09   39s   (running 6:06)
+SLIDE 10   39s   (running 6:42)
    Benchmark intelligence becomes an executable compute market.
 
   This is the AI-native Bloomberg for compute, built on Vishwa now. SMM brings the benchmark intelligence and market network. Vishwa adds the agent transaction layer, so buyers can compare capacity, prepare orders and move them through approval and settlement. The result is a compute benchmark that can become an executable market.
@@ -130,7 +155,7 @@ SLIDE 09   39s   (running 6:06)
     Focus：沿图的 benchmark → agentic transaction layer → market network 展开，让投资人理解 ambition：从价格信息走向支持实际交易的工作台，而 Vishwa 是其下的 runtime。Treasury 数字作为当前商业证明收尾。
 
 ========================================================================
-SLIDE 10   34s   (running 6:40)   ·   Go-to-market
+SLIDE 11   34s   (running 7:17)   ·   Go-to-market
    Prove the GPU wedge. Expand through licensed financial institutions.
 
   So how does one compute market become a platform? Two motions.
@@ -148,7 +173,7 @@ SLIDE 10   34s   (running 6:40)   ·   Go-to-market
     Do not claim FX, insurance or wealth are in progress. They are the expansion path.
 
 ========================================================================
-SLIDE 11   39s   (running 7:19)   ·   Technical moat
+SLIDE 12   39s   (running 7:55)   ·   Technical moat
    Every governed execution compounds twice.
 
   And why does this get harder to copy over time? Every governed execution compounds twice.
@@ -169,7 +194,7 @@ SLIDE 11   39s   (running 7:19)   ·   Technical moat
     the institution, not the individual.
 
 ========================================================================
-SLIDE 12   32s   (running 7:51)   ·   Security and competition
+SLIDE 13   32s   (running 8:27)   ·   Security and competition
    Most tools control access or move funds. Vishwa verifies institution-defined policy before execution.
 
   Now, where do we sit against everything else in the stack?
@@ -184,7 +209,7 @@ SLIDE 12   32s   (running 7:51)   ·   Security and competition
     is positioned.
 
 ========================================================================
-SLIDE 13   30s   (running 8:20)   ·   Competitive landscape
+SLIDE 14   30s   (running 8:57)   ·   Competitive landscape
    Most providers own a layer. Vishwa sits in the execution path.
 
   The same holds against the venture-backed comps. (point across the columns)
@@ -201,7 +226,7 @@ SLIDE 13   30s   (running 8:20)   ·   Competitive landscape
     is time to walk the columns.
 
 ========================================================================
-SLIDE 14   37s   (running 8:58)   ·   Business model
+SLIDE 15   37s   (running 9:34)   ·   Business model
    Land on deployment. Scale on governed flow.
 
   So how does this make money? Two motions on one runtime.
@@ -219,7 +244,7 @@ SLIDE 14   37s   (running 8:58)   ·   Business model
     answer with that number rather than letting them guess.
 
 ========================================================================
-SLIDE 15   40s   (running 9:37)   ·   Team
+SLIDE 16   40s   (running 10:14)   ·   Team
    Distribution, infrastructure and settlement in one founding team.
 
   That combination of infrastructure and market access is also reflected in the team.
@@ -234,7 +259,7 @@ SLIDE 15   40s   (running 9:37)   ·   Team
     depth.
 
 ========================================================================
-SLIDE 16   41s   (running 10:18)   ·   The round · 18 months
+SLIDE 17   41s   (running 10:55)   ·   The round · 18 months
    $10M to build one reusable core — infrastructure and go-to-market.
 
   The next step is to turn that capability into a reusable system.
@@ -248,10 +273,10 @@ SLIDE 16   41s   (running 10:18)   ·   The round · 18 months
     The amount IS on the slide in this cut and it is meant to be said. That is the difference
     from the four-minute deck, where Nova's call was to keep it off because the room was wrong
     for it. This is one investor with real size, so the number does its job.
-    Allocation is slide 13: 65% is the runtime and the deployments that harden it. The test
+    Allocation is slide 14: 65% is the runtime and the deployments that harden it. The test
     is that deployment two costs a fraction of deployment one.
     Revenue model is slide 14: deployment and annual platform fees from the institution, plus
     50-100 bps on governed flow.
 
 ========================================================================
-TOTAL 10:18
+TOTAL 10:55
