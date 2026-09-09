@@ -1,115 +1,49 @@
-<!-- ============ GOVERN ============
-     Design pass, authored at 1440x810 on deck tokens. {{NUM}}, no speaker notes.
+<!-- ============ PROBLEM — the exposure is in the handoffs ============
+     Was the top half of the old 05. The gate chain, the blocked example and
+     "prevention is probabilistic, enforcement is deterministic" are now 05b-gate.
+     Reads off page 04: 04 says WHAT a mandate specifies, this says WHERE it fails.
+     Rebuilt at full-page scale — the extracted half left two thirds of the page empty.
 ============================================================ -->
-<section class="slide" style="background:var(--bg); color:var(--ink); font-family:'Archivo',Helvetica,Arial,sans-serif; overflow:hidden; padding:52px 72px 80px; display:flex; flex-direction:column;">
+<section class="slide">
+  <div class="eyebrow">The problem</div>
+  <h1>Rails secure each box. Nobody secures the arrows.</h1>
+  <div class="sub">Institutions already know what to check. The exposure is in the handoffs.</div>
+  <div class="body">
 
-    <div style="font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:15px; letter-spacing:0.17em; text-transform:uppercase; color:var(--green-br);">Technical core 01 <span style="color:var(--faint);">/ 03</span> &nbsp;&#183;&nbsp; Govern</div>
-    <h1 style="margin:12px 0 0; font-size:47px; line-height:1.1; font-weight:700; letter-spacing:-0.017em; max-width:1230px;">Rails secure each box. Nobody secures the arrows.</h1>
-
-    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; padding:14px 0 6px;">
-
-      <div style="display:flex; align-items:center; gap:28px; margin-top:2px;">
-        <div style="flex:1;">
-          <div style="font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:12.5px; letter-spacing:0.17em; text-transform:uppercase; color:var(--red); margin-bottom:10px;">Without governed handoffs</div>
-          <div style="display:flex; align-items:center;">
-            <div style="flex:1; background:linear-gradient(180deg,var(--panel3),var(--panel2)); border:1px solid var(--line); border-radius:4px; padding:13px 6px; text-align:center; font-size:17px; font-weight:700; color:var(--ink2);">Planning agent</div>
-            <div style="width:104px; height:9px; position:relative; display:flex; justify-content:center; align-items:flex-start;">
-              <svg width="52" height="9" viewBox="0 0 52 9"><line x1="0" y1="4.5" x2="38" y2="4.5" stroke="#FF6B5A" stroke-width="1.6" stroke-dasharray="5 4" opacity="0.9"></line><path d="M40 1 L48 4.5 L40 8 Z" fill="#FF6B5A"></path></svg>
-            </div>
-            <div style="flex:1; background:linear-gradient(180deg,var(--panel3),var(--panel2)); border:1px solid var(--line); border-radius:4px; padding:13px 6px; text-align:center; font-size:17px; font-weight:700; color:var(--ink2);">Research agent</div>
-            <div style="width:104px; height:9px; position:relative; display:flex; justify-content:center; align-items:flex-start;">
-              <svg width="52" height="9" viewBox="0 0 52 9"><line x1="0" y1="4.5" x2="38" y2="4.5" stroke="#FF6B5A" stroke-width="1.6" stroke-dasharray="5 4" opacity="0.9"></line><path d="M40 1 L48 4.5 L40 8 Z" fill="#FF6B5A"></path></svg>
-            </div>
-            <div style="flex:1; background:linear-gradient(180deg,var(--panel3),var(--panel2)); border:1px solid var(--line); border-radius:4px; padding:13px 6px; text-align:center; font-size:17px; font-weight:700; color:var(--ink2);">Risk agent</div>
-            <div style="width:104px; height:9px; position:relative; display:flex; justify-content:center; align-items:flex-start;">
-              <svg width="52" height="9" viewBox="0 0 52 9"><line x1="0" y1="4.5" x2="38" y2="4.5" stroke="#FF6B5A" stroke-width="1.6" stroke-dasharray="5 4" opacity="0.9"></line><path d="M40 1 L48 4.5 L40 8 Z" fill="#FF6B5A"></path></svg>
-              <span style="position:absolute; top:14px; left:0; right:0; text-align:center; font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.06em; color:var(--red);">ungoverned</span>
-            </div>
-            <div style="flex:1; background:linear-gradient(180deg,var(--panel3),var(--panel2)); border:1px solid var(--line); border-radius:4px; padding:13px 6px; text-align:center; font-size:17px; font-weight:700; color:var(--ink2);">Execution agent</div>
-          </div>
-        </div>
-        <div style="width:264px; flex:none; border-left:1px solid var(--line); padding-left:24px;">
-          <div style="font-size:16px; color:var(--ink2); line-height:1.4;">Published multi-agent failure rates run <b style="color:var(--red);">up to 86%</b> of benchmark tasks.</div>
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--faint); margin-top:6px; letter-spacing:0.06em;">MAST &#183; NeurIPS 2025</div>
-        </div>
+    <div class="mono" style="font-size:12.5px;letter-spacing:.17em;color:var(--red);margin-top:24px">WITHOUT GOVERNED HANDOFFS</div>
+    <div style="display:flex;align-items:center;margin-top:15px">
+      <div style="flex:1;background:linear-gradient(180deg,var(--panel3),var(--panel2));border:1px solid var(--line);border-radius:5px;padding:20px 8px;text-align:center;font-size:21px;font-weight:700;color:var(--ink)">Planning agent</div>
+      <div style="flex:none;width:88px;display:flex;justify-content:center">
+        <svg width="62" height="14" viewBox="0 0 62 14"><line x1="0" y1="7" x2="46" y2="7" stroke="#FF6B5A" stroke-width="2.2" stroke-dasharray="6 5"/><path d="M46 1 L60 7 L46 13 Z" fill="#FF6B5A"/></svg>
       </div>
-
-      <div style="height:1px; background:var(--line); margin:26px 0 20px;"></div>
-
-      <div style="font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:12.5px; letter-spacing:0.17em; text-transform:uppercase; color:var(--green-br); margin-bottom:14px;">With Vishwa &#8212; a gate on every transition</div>
-
-      <div style="display:flex; align-items:stretch;">
-        <div style="flex:1; text-align:center;">
-          <div style="background:var(--green-dk); border:1px solid var(--green); border-radius:5px; padding:16px 6px; font-size:21px; font-weight:700; letter-spacing:0.02em; color:#FFFFFF; box-shadow:inset 0 1px 0 rgba(255,255,255,0.14);">SENSE</div>
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.13em; margin-top:8px; color:var(--green-br);">LIVE</div>
-        </div>
-        <div style="width:58px; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:12px;">
-          <svg width="24" height="27" viewBox="0 0 26 29"><path d="M13 1.5 L23.5 5.2 V13.6 C23.5 20.4 18.9 25.2 13 27.6 C7.1 25.2 2.5 20.4 2.5 13.6 V5.2 Z" fill="rgba(47,191,116,.12)" stroke="#2FBF74" stroke-width="1.9"></path><path d="M8.2 14.2 L11.6 17.6 L18 10.6" fill="none" stroke="#4FD894" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; color:var(--green-br); margin-top:5px;">GATE</div>
-        </div>
-        <div style="flex:1; text-align:center;">
-          <div style="background:var(--green-dk); border:1px solid var(--green); border-radius:5px; padding:16px 6px; font-size:21px; font-weight:700; letter-spacing:0.02em; color:#FFFFFF; box-shadow:inset 0 1px 0 rgba(255,255,255,0.14);">PLAN</div>
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.13em; margin-top:8px; color:var(--green-br);">LIVE</div>
-        </div>
-        <div style="width:58px; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:12px;">
-          <svg width="24" height="27" viewBox="0 0 26 29"><path d="M13 1.5 L23.5 5.2 V13.6 C23.5 20.4 18.9 25.2 13 27.6 C7.1 25.2 2.5 20.4 2.5 13.6 V5.2 Z" fill="rgba(47,191,116,.12)" stroke="#2FBF74" stroke-width="1.9"></path><path d="M8.2 14.2 L11.6 17.6 L18 10.6" fill="none" stroke="#4FD894" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; color:var(--green-br); margin-top:5px;">GATE</div>
-        </div>
-        <div style="flex:1; text-align:center;">
-          <div style="background:var(--green-dk); border:1px solid var(--green); border-radius:5px; padding:16px 6px; font-size:21px; font-weight:700; letter-spacing:0.02em; color:#FFFFFF; box-shadow:inset 0 1px 0 rgba(255,255,255,0.14);">CHECK</div>
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.13em; margin-top:8px; color:var(--green-br);">LIVE</div>
-        </div>
-        <div style="width:58px; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:12px;">
-          <svg width="24" height="27" viewBox="0 0 26 29"><path d="M13 1.5 L23.5 5.2 V13.6 C23.5 20.4 18.9 25.2 13 27.6 C7.1 25.2 2.5 20.4 2.5 13.6 V5.2 Z" fill="rgba(47,191,116,.12)" stroke="#2FBF74" stroke-width="1.9"></path><path d="M8.2 14.2 L11.6 17.6 L18 10.6" fill="none" stroke="#4FD894" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; color:var(--green-br); margin-top:5px;">GATE</div>
-        </div>
-        <div style="flex:1; text-align:center;">
-          <div style="background:var(--green-dk); border:1px solid var(--green); border-radius:5px; padding:16px 6px; font-size:21px; font-weight:700; letter-spacing:0.02em; color:#FFFFFF; box-shadow:inset 0 1px 0 rgba(255,255,255,0.14);">EXECUTE</div>
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.13em; margin-top:8px; color:var(--green-br);">LIVE</div>
-        </div>
-        <div style="width:58px; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:12px;">
-          <svg width="24" height="27" viewBox="0 0 26 29"><path d="M13 1.5 L23.5 5.2 V13.6 C23.5 20.4 18.9 25.2 13 27.6 C7.1 25.2 2.5 20.4 2.5 13.6 V5.2 Z" fill="rgba(47,191,116,.12)" stroke="#2FBF74" stroke-width="1.9"></path><path d="M8.2 14.2 L11.6 17.6 L18 10.6" fill="none" stroke="#4FD894" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; color:var(--green-br); margin-top:5px;">GATE</div>
-        </div>
-        <div style="flex:1; text-align:center;">
-          <div style="background:var(--green-dk); border:1px solid var(--green); border-radius:5px; padding:16px 6px; font-size:21px; font-weight:700; letter-spacing:0.02em; color:#FFFFFF; box-shadow:inset 0 1px 0 rgba(255,255,255,0.14);">RECEIPT</div>
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.13em; margin-top:8px; color:var(--green-br);">LIVE</div>
-        </div>
-        <div style="width:58px; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:12px;">
-          <svg width="24" height="27" viewBox="0 0 26 29"><path d="M13 1.5 L23.5 5.2 V13.6 C23.5 20.4 18.9 25.2 13 27.6 C7.1 25.2 2.5 20.4 2.5 13.6 V5.2 Z" fill="rgba(231,180,90,.10)" stroke="#E7B45A" stroke-width="1.9"></path><path d="M8.2 14.2 L11.6 17.6 L18 10.6" fill="none" stroke="#E7B45A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; color:var(--amber); margin-top:5px;">GATE</div>
-        </div>
-        <div style="flex:1; text-align:center;">
-          <div style="background:var(--panel2); border:1px dashed var(--line2); border-radius:5px; padding:16px 6px; font-size:21px; font-weight:700; letter-spacing:0.02em; color:var(--ink2);">REPLAY</div>
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.13em; margin-top:8px; color:var(--amber);">IN DEV</div>
-        </div>
-        <div style="width:58px; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:12px;">
-          <svg width="24" height="27" viewBox="0 0 26 29"><path d="M13 1.5 L23.5 5.2 V13.6 C23.5 20.4 18.9 25.2 13 27.6 C7.1 25.2 2.5 20.4 2.5 13.6 V5.2 Z" fill="rgba(231,180,90,.10)" stroke="#E7B45A" stroke-width="1.9"></path><path d="M8.2 14.2 L11.6 17.6 L18 10.6" fill="none" stroke="#E7B45A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; color:var(--amber); margin-top:5px;">GATE</div>
-        </div>
-        <div style="flex:1; text-align:center;">
-          <div style="background:var(--panel2); border:1px dashed var(--line2); border-radius:5px; padding:16px 6px; font-size:21px; font-weight:700; letter-spacing:0.02em; color:var(--ink2);">IMPROVE</div>
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.13em; margin-top:8px; color:var(--amber);">IN DEV</div>
-        </div>
+      <div style="flex:1;background:linear-gradient(180deg,var(--panel3),var(--panel2));border:1px solid var(--line);border-radius:5px;padding:20px 8px;text-align:center;font-size:21px;font-weight:700;color:var(--ink)">Research agent</div>
+      <div style="flex:none;width:88px;display:flex;justify-content:center">
+        <svg width="62" height="14" viewBox="0 0 62 14"><line x1="0" y1="7" x2="46" y2="7" stroke="#FF6B5A" stroke-width="2.2" stroke-dasharray="6 5"/><path d="M46 1 L60 7 L46 13 Z" fill="#FF6B5A"/></svg>
       </div>
-
-      <div style="margin-top:26px; display:flex; align-items:center; gap:30px; background:rgba(255,107,90,0.12); border:1px solid rgba(255,107,90,0.38); border-radius:6px; padding:22px 24px;">
-        <div style="flex:none;">
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:700; letter-spacing:0.16em; color:var(--red);"><span style="display:inline-block; width:9px; height:9px; background:var(--red); vertical-align:1px; margin-right:7px;"></span>BLOCKED</div>
-          <div style="font-size:32px; font-weight:700; margin-top:11px; letter-spacing:-0.02em; line-height:1.15;">An order that breaches<br>a policy limit</div>
-        </div>
-        <div style="flex:1; border-left:1px solid rgba(255,107,90,0.3); padding-left:28px;">
-          <div style="font-size:20px; color:var(--ink); line-height:1.55;">is stopped <b>before</b> it reaches a rail. The agent gets it back as a re-plan. <span style="color:var(--ink2);">The rail never sees it.</span></div>
-        </div>
+      <div style="flex:1;background:linear-gradient(180deg,var(--panel3),var(--panel2));border:1px solid var(--line);border-radius:5px;padding:20px 8px;text-align:center;font-size:21px;font-weight:700;color:var(--ink)">Risk agent</div>
+      <div style="flex:none;width:88px;position:relative;display:flex;justify-content:center">
+        <svg width="62" height="14" viewBox="0 0 62 14"><line x1="0" y1="7" x2="46" y2="7" stroke="#FF6B5A" stroke-width="2.2" stroke-dasharray="6 5"/><path d="M46 1 L60 7 L46 13 Z" fill="#FF6B5A"/></svg>
+        <span class="mono" style="position:absolute;top:22px;left:0;right:0;text-align:center;font-size:11.5px;letter-spacing:.08em;color:var(--red)">UNGOVERNED</span>
       </div>
+      <div style="flex:1;background:linear-gradient(180deg,var(--panel3),var(--panel2));border:1px solid var(--line);border-radius:5px;padding:20px 8px;text-align:center;font-size:21px;font-weight:700;color:var(--ink)">Execution agent</div>
+    </div>
+    <div class="mono" style="font-size:12.5px;letter-spacing:.1em;color:var(--faint);margin-top:30px">EVERY BOX IS SECURED BY ITS OWN RAIL &nbsp;&#183;&nbsp; NOTHING GOVERNS WHAT PASSES BETWEEN THEM</div>
 
-      <div style="margin-top:24px; font-size:25px; font-weight:700; line-height:1.25; letter-spacing:-0.01em;">Prevention is probabilistic. Enforcement is deterministic.</div>
-      <div style="margin-top:13px; display:flex; gap:8px;">
-        <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; color:var(--faint); border:1px solid var(--line); border-radius:3px; padding:4px 8px; white-space:nowrap;">NON-CUSTODIAL</span>
-        <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; color:var(--faint); border:1px solid var(--line); border-radius:3px; padding:4px 8px; white-space:nowrap;">FAILURE RATES PUBLISHED, NOT OURS</span>
+    <div style="display:flex;gap:28px;align-items:stretch;margin-top:30px">
+      <div class="card r" style="flex:none;width:368px;padding:22px 26px">
+        <div class="lbl" style="color:var(--red)">Published research</div>
+        <div style="font-size:58px;font-weight:700;color:var(--red);letter-spacing:-.03em;line-height:1;margin-top:12px">up to 86%</div>
+        <div style="font-size:17px;color:var(--ink2);margin-top:10px;line-height:1.4">multi-agent failure rates on benchmark tasks</div>
+        <div class="mono" style="font-size:12.5px;letter-spacing:.1em;color:var(--faint);margin-top:12px">MAST &#183; NEURIPS 2025</div>
       </div>
-
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;border-left:4px solid var(--red);padding-left:26px">
+        <div style="font-size:32px;font-weight:700;line-height:1.2;letter-spacing:-.015em">Errors do not stay local.</div>
+        <div style="font-size:32px;font-weight:700;line-height:1.2;letter-spacing:-.015em;color:var(--red);margin-top:3px">They compound from the first step to the last.</div>
+        <div style="font-size:17px;color:var(--muted);margin-top:14px;line-height:1.4">One bad handoff early becomes an order the rail cannot tell from a good one.</div>
+      </div>
     </div>
 
-    <div style="position:absolute; left:72px; right:72px; bottom:24px; display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:0.11em; color:var(--faint); text-transform:uppercase;"><span>Vishwa &#183; September 2026</span><span>{{NUM}}</span></div>
-  </section>
+    <div style="margin-top:22px"><span class="mono" style="font-size:11px;letter-spacing:.12em;color:var(--faint);border:1px solid var(--line);border-radius:3px;padding:4px 8px;white-space:nowrap">FAILURE RATES PUBLISHED, NOT OURS</span></div>
+  </div>
+  <div class="foot"><span>Vishwa &#183; September 2026</span><span>{{NUM}}</span></div>
+</section>
