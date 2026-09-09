@@ -14,7 +14,8 @@ Run with --dry to do everything except commit.
 import json, os, re, subprocess, sys, shutil
 
 R = os.path.dirname(os.path.abspath(__file__))
-SLUG = 'ef5aabaf9c89'                      # unguessable publish path
+SLUG    = 'ef5aabaf9c89'                   # unguessable publish path, 4-minute cut
+SLUG_VC = 'b41d7c92ae03'                   # ditto, the longer VC cut (--vc)
 DECK, WEB = os.path.join(R, 'deck'), os.path.join(R, 'web')
 INTERNAL = ('Open cold', 'Slow down', 'Volunteer the', 'terms are not signed',
             'If asked', 'Do not read', 'Do not narrate')
@@ -27,9 +28,11 @@ def run(cmd, cwd=None):
 def main():
     msg = next((a for a in sys.argv[1:] if not a.startswith('--')), None)
     dry = '--dry' in sys.argv
+    vc  = '--vc' in sys.argv
+    slug = SLUG_VC if vc else SLUG
     if not msg and not dry: sys.exit('need a commit message: python3 publish.py "what changed"')
 
-    print(run([sys.executable, 'build.py'], cwd=DECK).strip())
+    print(run([sys.executable, 'build.py'] + (['--vc'] if vc else []), cwd=DECK).strip())
 
     # keep design/vishwa-deck-body.html in step with the slides it exports
     run([sys.executable, os.path.join(R, 'design', 'export_for_design.py')], cwd=R)
@@ -43,7 +46,7 @@ def main():
             '<meta name="referrer" content="no-referrer">\n'
             '<style>*{box-sizing:border-box}html,body{margin:0}img{max-width:100%}'
             '[hidden]{display:none!important}</style>\n' + body + '</html>')
-    out = os.path.join(R, SLUG); os.makedirs(out, exist_ok=True)
+    out = os.path.join(R, slug); os.makedirs(out, exist_ok=True)
     open(os.path.join(out, 'index.html'), 'w', encoding='utf8').write(page)
 
     for f in os.listdir(DECK):
@@ -65,7 +68,7 @@ def main():
     run(['git', '-c', 'user.email=aden.yu@vishwalab.com', '-c', 'user.name=Aden',
          'commit', '-q', '-m', msg], cwd=R)
     run(['git', '-c', 'http.postBuffer=524288000', 'push', '-q', 'origin', 'main'], cwd=R)
-    print(f'pushed. live in ~10 min: https://adenprosde2024.github.io/vishwa-deck/{SLUG}/')
+    print(f'pushed. live in ~10 min: https://adenprosde2024.github.io/vishwa-deck/{slug}/')
 
 if __name__ == '__main__':
     main()
