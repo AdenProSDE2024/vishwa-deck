@@ -185,7 +185,14 @@ def main():
             sl.shapes.add_picture(p, 0, 0, width=prs.slide_width, height=prs.slide_height)
             if with_notes and notes.get(i):
                 sl.notes_slide.notes_text_frame.text = notes[i].strip()
-        prs.save(name); made.append(name)
+        prs.save(name)
+        # python-pptx writes the notesMaster relationship but not the matching
+        # <p:notesMasterIdLst>, and PowerPoint/Keynote refuse the file over it.
+        import fix_pptx_notes
+        fix_pptx_notes.repair(name)
+        import os as _os
+        if _os.path.exists(name + '.bak'): _os.remove(name + '.bak')
+        made.append(name)
 
     os.makedirs(MIRROR, exist_ok=True)
     for f in [pdf] + made:
