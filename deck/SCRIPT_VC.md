@@ -111,7 +111,7 @@ SLIDE 08   62s   (running 5:26)
   .the opportunity is US and China H100 pricing indices in dollars per GPU-hour, with an agent workbench on top.
 
   [ RESERVE — not spoken ]
-    Lead with what we build, never with who they are — describing the companies is what made the last version read as a list of Chinese firms. SMM is Shanghai Metals Market, a leading global price-reporting agency. It is not a household name in New York; it is the agency the metals industry actually clears against. It is marked PLANNED JV / IN DISCUSSION — terms are not signed. Say that plainly if asked. The 3.8m / 7,900+ / ~$104bn are SMM's own published figures, not ours. Do not mention the SGX or LME distribution conversations — those are unsigned third parties.
+    Lead with what we build, never with who they are — describing the companies is what made the last version read as a list of Chinese firms. SMM is Shanghai Metals Market, a leading global price-reporting agency. It is not a household name in New York; it is the agency the metals industry actually clears against. It is marked PLANNED JV / IN DISCUSSION — terms are not signed. Say that plainly if asked. The 3.8m / 7,900+ / ~$104bn are SMM's own published figures, not ours. SMM has also been discussing regulated distribution with SGX and LME. Whether that goes in the room is Nova's call, not a red line — she knows which parts are firm.
 
   [ 框架 ]
     Focus：用左边的三层解释"为什么能复用"，再用右边各家的用例说明"复用到哪里"。SMM 的数字要带上，并明确数字属于 SMM 的现有业务规模。
@@ -124,7 +124,7 @@ SLIDE 09   39s   (running 6:06)
   Also, In treasury today, Ant Digital has forty million dollars contracted;
 
   [ RESERVE — not spoken ]
-    LEAD WITH COMPUTE, THEN ONE LINE ON ANT — Nova's call. Compute is the newer story and the one with narrative; treasury is proof that this already runs. The page is structure, not a demo, so carry the concrete example in your mouth: "reserve four hundred H100-hours in US-East for Q4, inside budget" becomes a priced, policy-checked, receipted order. Use it if they look unconvinced that this is a product. The index is a planned JV with SMM and terms are not signed — say that plainly if asked, do not volunteer it. Do not mention the SGX or LME distribution conversations. $40M is the total contracted with Ant Digital, in USD; half was signed recently, say that only if they ask whether it is growing. The three figures are not additive. Volunteer the $370K yourself if they study the row — saying the small number is what makes the big ones believable. Overnight treasury flow with the 22:05-to-08:00 timeline is appendix A9.
+    LEAD WITH COMPUTE, THEN ONE LINE ON ANT — Nova's call. Compute is the newer story and the one with narrative; treasury is proof that this already runs. The page is structure, not a demo, so carry the concrete example in your mouth: "reserve four hundred H100-hours in US-East for Q4, inside budget" becomes a priced, policy-checked, receipted order. Use it if they look unconvinced that this is a product. The index is a planned JV with SMM and terms are not signed — say that plainly if asked, do not volunteer it. SMM has also been discussing regulated distribution with SGX and LME. Whether that goes in the room is Nova's call, not a red line — she knows which parts are firm. $40M is the total contracted with Ant Digital, in USD; half was signed recently, say that only if they ask whether it is growing. The three figures are not additive. Volunteer the $370K yourself if they study the row — saying the small number is what makes the big ones believable. Overnight treasury flow with the 22:05-to-08:00 timeline is appendix A9.
 
   [ 框架 ]
     Focus：沿图的 benchmark → agentic transaction layer → market network 展开，让投资人理解 ambition：从价格信息走向支持实际交易的工作台，而 Vishwa 是其下的 runtime。Treasury 数字作为当前商业证明收尾。
@@ -219,27 +219,37 @@ SLIDE 14   37s   (running 8:58)   ·   Business model
     answer with that number rather than letting them guess.
 
 ========================================================================
-SLIDE 15   34s   (running 9:31)   ·   Team
+SLIDE 15   37s   (running 9:34)   ·   Team
    Distribution, infrastructure and settlement in one founding team.
 
   That combination of infrastructure and market access is also reflected in the team.
   Our Chief Scientist brings Stanford, Berkeley Lab and SLAC research credentials, and previously scaled an agent platform past one million users.
-  Across the team: $4B+ protected, infrastructure across 10,000+ financial institutions, two exits and a $250M pipeline built from zero.
+  Across the team: $4B+ protected, Intel, Morgan Stanley and Alibaba, infrastructure across 10,000+ financial institutions, two exits and a $250M pipeline built from zero.
 
   [ RESERVE — not spoken ]
     Fifteen seconds. Do not narrate the logos or read anyone's bio — it is all on the slide. SJ also scaled an agent platform past 1M users to an M&A exit; use it only if asked.
+    Our CTO ran security and architecture at Intel and holds Intel's Global President's Award —
+    say that one if anyone asks who builds the enforcement layer.
 
 ========================================================================
-SLIDE 16   40s   (running 10:11)   ·   The round
-   We are opening this round to build one reusable core — infrastructure and go-to-market.
+SLIDE 16   41s   (running 10:15)   ·   The round · 18 months
+   $10M to build one reusable core — infrastructure and go-to-market.
 
   The next step is to turn that capability into a reusable system.
-  We are opening this round for building a common core across deployments: mandate, policy and proof in one runtime, distributed through partners that already own the network.
+  This round is $10M over 18 months, to build a common core across deployments: mandate,
+  policy and proof in one runtime, distributed through partners that already own the network.
   
-  Over the next 18 months, we aim to prove at least 70% reuse, three enterprise workflows, a paid flow model and repeatable deployment economics.
+  Over the next 18 months, we aim to prove at least 70% reuse, three enterprise workflows, a
+  paid flow model and repeatable deployment economics.
 
   [ RESERVE — not spoken ]
-    DO NOT SAY THE AMOUNT FROM THE STAGE — Nova’s call: in a room this size a number just invites people to file you under "not my cheque size" before they have heard the product. If asked: ten million over eighteen months, allocation in appendix A8. Sixty-five percent is the runtime and the deployments that harden it. The test is that deployment two costs a fraction of deployment one. Revenue model is slide 14: deployment and annual platform fees from the institution, plus 50–100 bps on governed flow.
+    The amount IS on the slide in this cut and it is meant to be said. That is the difference
+    from the four-minute deck, where Nova's call was to keep it off because the room was wrong
+    for it. This is one investor with real size, so the number does its job.
+    Allocation is slide 13: 65% is the runtime and the deployments that harden it. The test
+    is that deployment two costs a fraction of deployment one.
+    Revenue model is slide 14: deployment and annual platform fees from the institution, plus
+    50-100 bps on governed flow.
 
 ========================================================================
-TOTAL 10:11
+TOTAL 10:15

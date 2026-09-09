@@ -33,15 +33,27 @@ VC = '--vc' in sys.argv          # longer investor version: 5 extra body slides
 # appendix pages in the short deck, so the VC cut promotes them into the body instead of
 # duplicating them — they are removed from the appendix in that build.
 VC_PROMOTE = ['appendix/a8-competition.html', 'appendix/a2-business-model.html']
+# Pages the VC cut swaps out for its own version. The four-minute deck keeps the amount
+# off the ask page (Plug and Play is the wrong room for it); the VC cut puts it back.
+# Files in pages-vc/ whose name starts with _ are replacements, not extra slides.
+VC_REPLACE = {'pages/11-ask.html': 'pages-vc/_11-ask-vc.html'}
 
 
 def collect():
     pages = sorted(glob.glob('pages/*.html'))
     apx   = sorted(glob.glob('appendix/*.html'), key=lambda p: int(re.search(r'/a(\d+)', p).group(1)))
     if VC:
-        pages = sorted(pages + glob.glob('pages-vc/*.html'), key=lambda p: os.path.basename(p))
-        at = max(i for i, f in enumerate(pages) if f.startswith('pages-vc/')) + 1
+        extra = [f for f in glob.glob('pages-vc/*.html')
+                 if not os.path.basename(f).startswith('_')]
+        pages = sorted(pages + extra, key=lambda p: os.path.basename(p))
+        # promoted pages go straight after the extra VC slides. Work this out from `extra`
+        # only: a VC_REPLACE file also lives in pages-vc/, and counting it here pushed the
+        # promoted pages to the very end of the deck.
+        at = max(pages.index(f) for f in extra) + 1
         pages[at:at] = VC_PROMOTE
+        for orig, repl in VC_REPLACE.items():
+            if orig in pages and os.path.exists(repl):
+                pages[pages.index(orig)] = repl
         apx = [f for f in apx if f not in VC_PROMOTE]
     labels = {}
     for i, f in enumerate(pages, start=1): labels[f] = f'{i:02d}'
