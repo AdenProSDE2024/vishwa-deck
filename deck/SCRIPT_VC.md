@@ -219,20 +219,22 @@ SLIDE 14   37s   (running 8:58)   ·   Business model
     answer with that number rather than letting them guess.
 
 ========================================================================
-SLIDE 15   37s   (running 9:34)   ·   Team
+SLIDE 15   40s   (running 9:37)   ·   Team
    Distribution, infrastructure and settlement in one founding team.
 
   That combination of infrastructure and market access is also reflected in the team.
-  Our Chief Scientist brings Stanford, Berkeley Lab and SLAC research credentials, and previously scaled an agent platform past one million users.
-  Across the team: $4B+ protected, Intel, Morgan Stanley and Alibaba, infrastructure across 10,000+ financial institutions, two exits and a $250M pipeline built from zero.
+  Our CTO ran security and architecture at Intel, where he won Intel's Global President's Award. Before that he was an SVP at Morgan Stanley and a senior technical expert at Alibaba.
+  Across the team: $4B+ protected, infrastructure across 10,000+ financial institutions, two exits and a $250M pipeline built from zero.
 
   [ RESERVE — not spoken ]
     Fifteen seconds. Do not narrate the logos or read anyone's bio — it is all on the slide. SJ also scaled an agent platform past 1M users to an M&A exit; use it only if asked.
-    Our CTO ran security and architecture at Intel and holds Intel's Global President's Award —
-    say that one if anyone asks who builds the enforcement layer.
+    The CTO line is now the one we lead with, not the Chief Scientist — Aden's call. SJ is
+    still on the slide and still carries the $4B+; his Stanford / Berkeley Lab / SLAC background
+    and the 1M-user agent platform are in reserve, use them only if someone asks about research
+    depth.
 
 ========================================================================
-SLIDE 16   41s   (running 10:15)   ·   The round · 18 months
+SLIDE 16   41s   (running 10:18)   ·   The round · 18 months
    $10M to build one reusable core — infrastructure and go-to-market.
 
   The next step is to turn that capability into a reusable system.
@@ -252,4 +254,4 @@ SLIDE 16   41s   (running 10:15)   ·   The round · 18 months
     50-100 bps on governed flow.
 
 ========================================================================
-TOTAL 10:15
+TOTAL 10:18
